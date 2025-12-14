@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Fun - Add to 20!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-selector">
+                <button class="lang-btn" onclick="setLanguage('en')" data-lang="en">EN</button>
+                <button class="lang-btn" onclick="setLanguage('bg')" data-lang="bg">БГ</button>
+            </div>
+            <h1>🎯 Math Fun - Add to 20! 🎯</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Streak:</span>
+                    <span id="streak" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total:</span>
+                    <span id="total" class="stat-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="question-card">
+                <h2 class="question">What is <span id="num1">5</span> + <span id="num2">7</span>?</h2>
+                
+                <div class="input-section">
+                    <input type="number" id="answer" placeholder="Type your answer" min="0" max="20" autofocus>
+                    <button id="submitBtn" class="btn btn-primary">Провери отговора</button>
+                </div>
+
+                <div id="feedback" class="feedback hidden"></div>
+            </div>
+
+            <div class="progress-section">
+                <h3>Твоят прогрес 📊</h3>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <p class="progress-text">
+                    <span id="correct">0</span> correct out of <span id="attempted">0</span> attempts
+                    <span id="percentage">(0%)</span>
+                </p>
+            </div>
+
+            <div class="history-section">
+                <h3>Recent Answers 📝</h3>
+                <div id="history" class="history-list"></div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="resetBtn" class="btn btn-secondary">Reset Progress</button>
+        </footer>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
