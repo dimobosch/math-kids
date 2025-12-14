@@ -107,6 +107,7 @@ function setLanguage(lang) {
     currentLanguage = lang;
     localStorage.setItem('mathFunLanguage', lang);
     updateUIText();
+    updateQuestionText(); // Update question when language changes
 }
 
 // Function to load saved language
@@ -144,9 +145,6 @@ function updateUIText() {
     // Update reset button
     document.getElementById('resetBtn').textContent = t('resetButton');
     
-    // Update question text
-    updateQuestionText();
-    
     // Update progress text
     updateProgressText();
     
@@ -161,10 +159,16 @@ function updateUIText() {
 
 // Function to update question text
 function updateQuestionText() {
-    const num1 = document.getElementById('num1').textContent;
-    const num2 = document.getElementById('num2').textContent;
+    const num1 = document.getElementById('num1');
+    const num2 = document.getElementById('num2');
     const questionElement = document.querySelector('.question');
-    questionElement.innerHTML = `${t('whatIs')} <span id="num1">${num1}</span> ${t('plus')} <span id="num2">${num2}</span>${t('questionMark')}`;
+    
+    // Get current values or use empty string
+    const num1Value = num1 ? num1.textContent : '';
+    const num2Value = num2 ? num2.textContent : '';
+    
+    // Rebuild the question with translated text, preserving the number values
+    questionElement.innerHTML = `${t('whatIs')} <span id="num1">${num1Value}</span> ${t('plus')} <span id="num2">${num2Value}</span>${t('questionMark')}`;
 }
 
 // Function to update progress text

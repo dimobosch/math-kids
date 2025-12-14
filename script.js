@@ -51,12 +51,13 @@ function generateNewQuestion() {
     currentNum2 = Math.floor(Math.random() * maxNum2) + 1;
     currentAnswer = currentNum1 + currentNum2;
     
-    // Update UI
-    num1Element.textContent = currentNum1;
-    num2Element.textContent = currentNum2;
+    // Update UI - get fresh references to elements
+    const num1 = document.getElementById('num1');
+    const num2 = document.getElementById('num2');
+    if (num1) num1.textContent = currentNum1;
+    if (num2) num2.textContent = currentNum2;
     answerInput.value = '';
     answerInput.focus();
-    updateQuestionText();
     
     // Hide feedback
     feedbackElement.classList.add('hidden');
